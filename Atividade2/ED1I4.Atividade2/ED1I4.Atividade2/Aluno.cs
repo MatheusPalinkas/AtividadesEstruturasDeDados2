@@ -44,7 +44,7 @@ namespace ED1I4.Atividade2
                     }
                 }
             }
-            return qtdMatriculas <= MAX_DISCIPLINAS_POR_ALUNO;
+            return qtdMatriculas < MAX_DISCIPLINAS_POR_ALUNO;
         }
         public override bool Equals(object obj) => id.Equals(((Aluno)obj).Id);
         public override string ToString() => $"Id: {id} - Nome: {nome}";

@@ -14,6 +14,37 @@ namespace ED1I4.Atividade2
             int opcao = 1;
             Escola escola = new Escola();
 
+            Aluno aluno = new Aluno(1, "Palinkas");
+            Curso curso = new Curso(1, "ADS");
+
+            Disciplina disciplina1 = new Disciplina(1, "Linguagem de programação 1");
+            Disciplina disciplina2 = new Disciplina(2, "Linguagem de programação 2");
+            Disciplina disciplina3 = new Disciplina(3, "Linguagem de programação 3");
+            Disciplina disciplina4 = new Disciplina(4, "Web 1");
+            Disciplina disciplina5 = new Disciplina(5, "Web 2");
+            Disciplina disciplina6 = new Disciplina(6, "Web 3");
+            Disciplina disciplina7 = new Disciplina(7, "Edição de video");
+
+            disciplina1.matricularAluno(aluno);
+            disciplina2.matricularAluno(aluno);
+            disciplina3.matricularAluno(aluno);
+            disciplina4.matricularAluno(aluno);
+            disciplina5.matricularAluno(aluno);
+            disciplina6.matricularAluno(aluno);
+
+
+            curso.adicionarDisciplina(disciplina1);
+            curso.adicionarDisciplina(disciplina2);
+            curso.adicionarDisciplina(disciplina3);
+            curso.adicionarDisciplina(disciplina4);
+            curso.adicionarDisciplina(disciplina5);
+            curso.adicionarDisciplina(disciplina6);
+            curso.adicionarDisciplina(disciplina7);
+
+            escola.adicionarCurso(curso);
+
+
+
             while (opcao != 0)
             {
                 Console.WriteLine("0. Sair\n1. Adicionar curso\n2. Pesquisar curso (mostrar inclusive as disciplinas associadas)\n3. Remover curso (não pode ter nenhuma disciplina associada)\n4. Adicionar disciplina no curso\n5. Pesquisar disciplina (mostrar inclusive os alunos matriculados)\n6. Remover disciplina do curso (não pode ter nenhum aluno matriculado)\n7. Matricular aluno na disciplina\n8. Remover aluno da disciplina\n9. Pesquisar aluno (informar seu nome e em quais disciplinas ele está matriculado)\n");
@@ -167,6 +198,13 @@ namespace ED1I4.Atividade2
 
             Console.Write("Digite o nome do aluno: ");
             aluno.Nome = Console.ReadLine();
+
+            bool podeMatricular = aluno.podeMatricular(escola.Cursos);
+            if (!podeMatricular)
+            {
+                Console.WriteLine("\nAluno já atingiu o maximo de disciplinas!");
+                return;
+            }
 
             bool matriculadoComSucesso = disciplina.matricularAluno(aluno);
             if (matriculadoComSucesso)
