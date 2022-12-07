@@ -13,15 +13,6 @@ namespace Atividade10
         {
             var jornada = new Jornada();
 
-            var garagem = new Garagem("AAA");
-
-            var carro1 = new Veiculo("DCS8407", "Renato", 23);
-            var carro2 = new Veiculo("DTV4245", "Jose", 10);
-
-            jornada.AdicionarGaragem(garagem);
-            jornada.AdicionarVeiculo(carro1);
-            jornada.AdicionarVeiculo(carro2);
-
             var seletor = new Seletor(jornada);
 
             int opcao = -1;
